@@ -1,11 +1,14 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import stays from "@/data/stays";
+import { Stack, useLocalSearchParams } from "expo-router";
 
 const StayDetails = () => {
-  const stay = stays[0];
+  const id = useLocalSearchParams();
+  const stay = stays.find((stay) => stay.id === +id);
   return (
     <View style={styles.container}>
+      <Stack.Screen name="stays/index" options={{ title: stay?.name }} />
       <Text style={styles.name}>{stay?.name}</Text>
       <Image source={{ uri: stay?.img }} style={styles.image} />
       <Text style={styles.text}>Location: {stay?.location}</Text>

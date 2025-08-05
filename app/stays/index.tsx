@@ -1,5 +1,11 @@
-import StaysList from "@/component/StaysList";
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import StayDetails from "../Staydetails";
 
-export default function StaysPage() {
-  return <StaysList stays={[]} />;
-}
+const index = () => {
+  return <StayDetails />;
+};
+
+export default index;
+
+const styles = StyleSheet.create({});
