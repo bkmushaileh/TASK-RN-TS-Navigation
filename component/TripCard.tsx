@@ -1,5 +1,14 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  Touchable,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
+import { Link, router, Stack, useLocalSearchParams } from "expo-router";
+import { push } from "expo-router/build/global-state/routing";
 
 interface TripCardProps {
   trip: {
@@ -18,7 +27,16 @@ interface TripCardProps {
 const TripCard = ({ trip }: TripCardProps) => {
   return (
     <View style={styles.container}>
-      <Image source={{ uri: trip.img }} style={styles.image} />
+      <TouchableOpacity
+        onPress={() =>
+          router.push({
+            pathname: "/trips",
+            params: { slug: trip.slug },
+          })
+        }
+      >
+        <Image source={{ uri: trip.img }} style={styles.image} />
+      </TouchableOpacity>
     </View>
   );
 };
