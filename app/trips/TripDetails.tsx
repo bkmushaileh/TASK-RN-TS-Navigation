@@ -8,8 +8,7 @@ const TripDetails = () => {
   const trip = trips.find((trip) => trip.slug === slug);
   return (
     <View style={styles.container}>
-      <Stack.Screen name="trips/index" options={{ title: trip?.name }} />
-
+      / <Stack.Screen name="/trips" options={{ title: trip?.name }} />
       <Text style={styles.title}>{trip?.name}</Text>
       <Image source={{ uri: trip?.img }} style={styles.image} />
       <View style={styles.infoContainer}>
@@ -18,7 +17,6 @@ const TripDetails = () => {
         <Text style={styles.description}>Difficulty: {trip?.difficulty}</Text>
         <Text style={styles.description}>Rating: {trip?.rating}</Text>
       </View>
-
       <Text style={styles.description}>{trip?.details}</Text>
     </View>
   );
